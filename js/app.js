@@ -25,17 +25,45 @@ const encontrar = () =>{
     }
     navigator.geolocation.getCurrentPosition(localizacion,error);
   }
-  //Buscar información de restaurantes en database 
+  //Buscar información de restaurantes en firestore
 
 let searchbar = document.getElementById('buscarRes');
 let searchBtn = document.getElementById('search');
-let foodFind = document.getElementById('contenedorRest');
+let restEncontrados = document.getElementById('contenedorRest');
 
 db.collection("places").onSnapshot((querySnapshot) => {
-    foodFind.innerHTML = '';
+  restEncontrados.innerHTML = '';
     querySnapshot.forEach((doc) => {
         console.log(doc.data().address)
-        foodFind.innerHTML += `<li class="restaurantes">${doc.data().name}`;
+        restEncontrados.innerHTML += `
+        <div class="card">
+  <div class="card-header">
+  ${doc.data().name}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">${doc.data().type}</h5>
+    <p class="card-text">${doc.data().rate}</p>
+    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Detalles</a>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Dirección</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+      ${doc.data().address}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>`;
     });
 });
 window.onload = encontrar;
