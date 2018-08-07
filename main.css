@@ -14,13 +14,12 @@
 p{
     font-size: 40px;
     color: #2C363F;
-    margin-bottom: 22%;
     padding-left: 10%;
 }
 .pizza{
-    margin-left: 31%;
-    margin-top: -14%;
-    width: 35%;
+    margin-left: 19%;
+    margin-top: 12%;
+    width: 62%;
 }
 h1{
     font-family: 'Acme', sans-serif;
@@ -29,11 +28,13 @@ input, button{
     -webkit-box-shadow: 10px 12px 2px -6px rgba(199,187,199,0.39);
 -moz-box-shadow: 10px 12px 2px -6px rgba(199,187,199,0.39);
 box-shadow: 10px 12px 2px -6px rgba(199,187,199,0.39);
+margin-left: 10%;
+margin-right: 10%
 }
 .alas{
     margin-left: 53%;
     width: 50%;
-    margin-top: 22%;
+    margin-top: 10%;
 }
 #mapa{
     height: 300px; 
@@ -50,5 +51,22 @@ box-shadow: 10px 12px 2px -6px rgba(199,187,199,0.39);
 #mapa img {
     width: 99%;
     height: 84%;
+
+}
+food p{
+    width: 20%;
+    margin-bottom: 40%
+}
+queso img{
+    margin-top:30%
+}
+footer{
+    text-align: center;
+    color: #2C363F;
+    margin-top: 50%;
+    font-family: 'Indie Flower', cursive;
+}
+input-group{
+margin-left: 10% !important;
 
 }
